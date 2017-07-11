@@ -9,20 +9,35 @@
 
 
   <body>
-    <script
-    src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="semantic/dist/semantic.min.js"></script>
     <script src="api-adapter.js"></script>
     <script src="submission.js"></script>
     <script src="collection.js"></script>
     <script src="index.js"></script>
-    <div id="results">
-      <div class="ui link cards">
-      </div>
 
+    <div class="container">
+      <!-- form -->
+      <form id="form">
+        <input type="text" name="title">
+        <br>
+        <input type="text" name="description">
+        <br>
+        <input type="text" name="body">
+        <br>
+        <input type="submit" name="create submission" value="create submission">
+      </form>
+      <br>
+      <hr>
+      <!-- end form -->
+      <!-- collection display -->
+      <div id="results">
+        <div class="ui link cards">
+        </div>
+      </div>
     </div>
+    <!-- end collection display -->
+
 
   </body>
 
