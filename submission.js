@@ -11,6 +11,25 @@ class Submission {
   }
 
   render() {
-    return `<div>${this.title}</div>`
+    return `
+
+    <div class="card">
+      <div class="image">
+        <img src="images/corgi2.png">
+      </div>
+      <div class="content">
+        <div class="header">${this.title}</div>
+        <div class="meta">
+          <a>${this.description}</a>
+        </div>
+        <div class="description">
+          ${this.body}
+        </div>
+      </div>
+      <div class="extra content">
+
+      </div>
+      </div>`
+
   }
 }

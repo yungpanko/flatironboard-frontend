@@ -7,8 +7,9 @@ class Collection {
   }
 
   render() {
+
     this.submissions.map(submission => {
-      $('#results').append(submission.render())
+      $('#results > div.ui.link.cards').append(submission.render())
     })
 
   }
