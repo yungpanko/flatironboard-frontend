@@ -4,6 +4,6 @@ $(document).ready(function () {
 });
 
 function displayContent(data) {
-  
-  debugger
+  let collection = new Collection(data)
+  collection.render()
 }
