@@ -24,9 +24,11 @@ class Submission {
           <div class="description">
             ${this.body}
           </div>
+          <a href="${this.link_url}" target="_blank" >
           <div class="ui bottom attached button">
-            View Source
+            <p>View Source</p>
           </div>
+          </a>
         </div>
       </div>
     `

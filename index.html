@@ -13,49 +13,71 @@
     <script src="semantic/dist/semantic.min.js"></script>
     <script src="api-adapter.js"></script>
     <script src="submission.js"></script>
+    <script src="category.js"></script>
+    <script src="categorycollection.js"></script>
+    <script src="contentType.js"></script>
+    <script src="contentTypeCollection.js"></script>
     <script src="collection.js"></script>
     <script src="index.js"></script>
 
-      <!-- form -->
-      <h1 class="ui center aligned header">Welcome to FlatironBoard</h1>
-      <div class="ui horizontal divider">
-          CREATE A NEW SUBMISSION
+    <!-- form -->
+    <h1 class="ui center aligned header">Welcome to FlatironBoard</h1>
+    <div class="ui horizontal divider">
+      CREATE A NEW SUBMISSION
+    </div>
+
+    <form id="form" class="ui small form">
+
+      <div class="six wide field">
+        <label>Title</label>
+        <input type="text" name="title">
       </div>
-
-      <form id="form" class="ui small form">
-
-          <div class="six wide field">
-            <label>Title</label>
-            <input type="text" name="title">
-          </div>
-          <div class="ten wide field">
-            <label>Description</label>
-            <input type="text" name="description">
-          </div>
-          <div class="field">
-            <label>Body</label>
-            <textarea name="body" rows="3"></textarea>
-          </div>
-
-
-
-
-        <input class="ui button" type="submit" name="create submission" value="Create Submission!">
+      <div class="ten wide field">
+        <label>Description</label>
+        <input type="text" name="description">
       </div>
-      </form>
-
-      <div class="ui horizontal divider">
-        FEED
+      <div class="field">
+        <label>Body</label>
+        <textarea name="body" rows="3"></textarea>
       </div>
-
-      <!-- end form -->
-      <br>
-      <!-- collection display -->
-
-      <div class="ui three column padded centered grid" id="results">
-        <div class="ui link cards">
+      <div class="field">
+        <label>Category</label>
+        <div class="ui selection dropdown categories">
+          <input type="hidden" name="category" id="category-selection">
+          <i class="dropdown icon"></i>
+          <div class="default text">Select Category</div>
+          <div class="menu" id="category-menu">
+            <!-- insert menu selections here <div class="item" data-value="0">Male</div> -->
+          </div>
         </div>
       </div>
+      <div class="field">
+        <label>Content Type</label>
+        <div class="ui selection dropdown contentTypes">
+          <input type="hidden" name="content-type" id="content-type-selection">
+          <i class="dropdown icon"></i>
+          <div class="default text">Select Content Type</div>
+          <div class="menu" id="content-type-menu">
+            <!-- insert menu selections here <div class="item" data-value="0">Male</div> -->
+          </div>
+        </div>
+      </div>
+      <input class="ui button" type="submit" name="create submission" value="Create Submission!">
+      </div>
+    </form>
+
+    <div class="ui horizontal divider">
+      FEED
+    </div>
+
+    <!-- end form -->
+    <br>
+    <!-- collection display -->
+
+    <div class="ui three column padded centered grid" id="results">
+      <div class="ui link cards">
+      </div>
+    </div>
 
     <!-- end collection display -->
 

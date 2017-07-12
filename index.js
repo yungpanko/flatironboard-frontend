@@ -2,9 +2,22 @@ $(document)
   .ready(function () {
     // call functions here
     getAllSubmissions(displayContent)
+    getAllCategories(renderCategoryDropDown) //move out of document ready when we move the form
+    getAllContentTypes(renderContentTypeDropDown) //move out of document ready when we move the form
     submitForm()
-    viewSourceLink()
   })
+
+function renderCategoryDropDown(data) {
+  let categories = new CategoryCollection(data)
+  $('.ui.dropdown.categories').dropdown(() => {});
+  categories.renderForDropDown()
+}
+
+function renderContentTypeDropDown(data) {
+  let contentTypes = new ContentTypeCollection(data)
+  $('.ui.dropdown.contentTypes').dropdown(() => {});
+  contentTypes.renderForDropDown()
+}
 
 function displayContent(data) {
   let collection = new Collection(data)
@@ -14,32 +27,22 @@ function displayContent(data) {
 function submitForm() {
   $('#form')
     .on('submit', function (event) {
-      let title = $('#form > input[name="title"]').val()
-      let description = $('#form > input[name="description"]').val()
-      let body = $('#form > input[name="body"]').val()
+      let title = $('#form > > input[name="title"]').val()
+      let description = $('#form > > input[name="description"]').val()
+      let body = $('#form > > textarea[name="body"]').val()
+      let category_id = $('#category-selection').val()
+      let content_type_id = $('#content-type-selection').val()
       let data = {
         "submission": {
           "title": title,
           "description": description,
-          "body": body
+          "body": body,
+          "category_id": category_id,
+          "content_type_id": content_type_id
         }
       }
       postNewSubmission(data)
       collection.render()
       event.preventDefault()
     })
-}
-
-function viewSourceLink() {
-  $('.ui.link.cards > card').on("click", function(){
-    event.preventDefault()
-    console.log(event)
-    // let name = event.target.attributes.itemName.value
-    // let price = event.target.attributes.itemPrice.value
-    // let listItem = new Item(name, price)
-    // cart.addItem(listItem)
-    // list.removeItem(listItem)
-    // list.renderList()
-    // cart.renderCart()
-  })
 }
