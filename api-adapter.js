@@ -2,7 +2,7 @@
 
 function getAllSubmissions(callback) {
 
-  const url = 'http://localhost:3000/submissions.json'
+  const url = 'http://localhost:3000/api/v1/submissions.json'
 
   fetch(url, {
       method: 'GET'
@@ -15,7 +15,7 @@ function getAllSubmissions(callback) {
 
 function getAllCategories(callback) {
 
-  const url = 'http://localhost:3000/categories.json'
+  const url = 'http://localhost:3000/api/v1/categories.json'
 
   fetch(url, {
       method: 'GET'
@@ -28,7 +28,7 @@ function getAllCategories(callback) {
 
 function getAllContentTypes(callback) {
 
-  const url = 'http://localhost:3000/content_types.json'
+  const url = 'http://localhost:3000/api/v1/content_types.json'
 
   fetch(url, {
       method: 'GET'
@@ -41,7 +41,7 @@ function getAllContentTypes(callback) {
 
 function getSingleSubmission(id, callback) {
 
-  const url = 'http://localhost:3000/submissions/' + id + '.json'
+  const url = 'http://localhost:3000/api/v1/submissions/' + id + '.json'
 
   fetch(url, {
       method: 'GET'
@@ -54,7 +54,7 @@ function getSingleSubmission(id, callback) {
 
 function postNewSubmission(data) {
 
-  const url = 'http://localhost:3000/submissions'
+  const url = 'http://localhost:3000/api/v1/submissions'
 
   fetch(url, {
       method: 'POST',
