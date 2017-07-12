@@ -16,26 +16,47 @@
     <script src="collection.js"></script>
     <script src="index.js"></script>
 
-    <div class="container">
       <!-- form -->
-      <form id="form">
-        <input type="text" name="title">
-        <br>
-        <input type="text" name="description">
-        <br>
-        <input type="text" name="body">
-        <br>
-        <input type="submit" name="create submission" value="create submission">
+      <h1 class="ui center aligned header">Welcome to FlatironBoard</h1>
+      <div class="ui horizontal divider">
+          CREATE A NEW SUBMISSION
+      </div>
+
+      <form id="form" class="ui small form">
+
+          <div class="six wide field">
+            <label>Title</label>
+            <input type="text" name="title">
+          </div>
+          <div class="ten wide field">
+            <label>Description</label>
+            <input type="text" name="description">
+          </div>
+          <div class="field">
+            <label>Body</label>
+            <textarea name="body" rows="3"></textarea>
+          </div>
+
+
+
+
+        <input class="ui button" type="submit" name="create submission" value="Create Submission!">
+      </div>
       </form>
-      <br>
-      <hr>
+
+      <div class="ui horizontal divider">
+        FEED
+      </div>
+
       <!-- end form -->
+      <br>
       <!-- collection display -->
-      <div id="results">
+
+      <div class="ui three column padded centered grid" id="results">
         <div class="ui link cards">
         </div>
       </div>
-    </div>
+
     <!-- end collection display -->
 
 
