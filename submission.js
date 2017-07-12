@@ -12,24 +12,24 @@ class Submission {
 
   render() {
     return `
-
-    <div class="card">
-      <div class="image">
-        <img src="images/corgi2.png">
-      </div>
-      <div class="content">
-        <div class="header">${this.title}</div>
-        <div class="meta">
-          <a>${this.description}</a>
+      <div class="card">
+        <div class="image">
+          <img src=${this.src_url}>
         </div>
-        <div class="description">
-          ${this.body}
+        <div class="content">
+          <div class="header">${this.title}</div>
+          <div class="meta">
+            <a>${this.description}</a>
+          </div>
+          <div class="description">
+            ${this.body}
+          </div>
+          <div class="ui bottom attached button">
+            View Source
+          </div>
         </div>
       </div>
-      <div class="extra content">
-
-      </div>
-      </div>`
+    `
 
   }
 }
