@@ -13,6 +13,32 @@ function getAllSubmissions(callback) {
 
 }
 
+function getAllCategories(callback) {
+
+  const url = 'http://localhost:3000/categories.json'
+
+  fetch(url, {
+      method: 'GET'
+    })
+    .then(response => response.json())
+    .then(response => callback(response))
+    .catch(error => console.log(error))
+
+}
+
+function getAllContentTypes(callback) {
+
+  const url = 'http://localhost:3000/content_types.json'
+
+  fetch(url, {
+      method: 'GET'
+    })
+    .then(response => response.json())
+    .then(response => callback(response))
+    .catch(error => console.log(error))
+
+}
+
 function getSingleSubmission(id, callback) {
 
   const url = 'http://localhost:3000/submissions/' + id + '.json'
