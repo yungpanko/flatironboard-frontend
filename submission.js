@@ -22,7 +22,7 @@ class Submission {
             <a>${this.description}</a>
           </div>
           <div class="description">
-            ${this.body}
+            ${this.body.substring(0,150)} ...
           </div>
           <a href="${this.link_url}" target="_blank" >
           <div class="ui bottom attached button">
