@@ -1,3 +1,5 @@
+
+
 class Collection {
   constructor(array) {
     this.submissions = []
@@ -6,11 +8,22 @@ class Collection {
       })
   }
 
-  render() {
+  submissionsPage(page) {
+    return this.submissions.slice((page - 1)*10,(page*10))
+  }
 
-    this.submissions.map(submission => {
+  render(array) {
+    if (array.length < 10) {
+      $('#loadMoreButton').hide()
+    }
+    array.forEach((submission) => {
       $('#results > div.ui.link.cards').append(submission.render())
     })
-
   }
 }
+
+
+
+  // renderMore() {
+  //   this.submissions
+  // }

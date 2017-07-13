@@ -1,11 +1,31 @@
+let page = 1
+
 $(document)
   .ready(function () {
     // call functions here
+
     getAllSubmissions(displayContent)
     getAllCategories(renderCategoryDropDown) //move out of document ready when we move the form
     getAllContentTypes(renderContentTypeDropDown) //move out of document ready when we move the form
     submitForm()
+    loadMore()
+
   })
+
+  function loadMoreSubmissions(data){
+    let collection = new Collection(data)
+    let array = collection.submissionsPage(page)
+    collection.render(array)
+    page += 1
+
+  }
+
+function loadMore () {
+  $('#loadMoreButton').on('click', function(event) {
+    getAllSubmissions(loadMoreSubmissions)
+  })
+
+}
 
 function renderCategoryDropDown(data) {
   let categories = new CategoryCollection(data)
@@ -21,7 +41,9 @@ function renderContentTypeDropDown(data) {
 
 function displayContent(data) {
   let collection = new Collection(data)
-  collection.render()
+  let array = collection.submissionsPage(page)
+  collection.render(array)
+  page += 1
 }
 
 function submitForm() {
