@@ -12,11 +12,12 @@ class Submission {
 
   render() {
     return `
-      <div class="card">
+    <div class="column">
+      <div class="ui fluid card">
         <div class="image">
           <img src=${this.src_url}>
         </div>
-        <div class="content">
+        <div class="center aligned content">
           <div class="header">${this.title}</div>
           <div class="meta">
             <a>${this.description}</a>
@@ -30,6 +31,7 @@ class Submission {
           </div>
           </a>
         </div>
+      </div>
       </div>
     `
 
