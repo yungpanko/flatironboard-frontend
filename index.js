@@ -141,7 +141,7 @@ function submitForm() {
 }
 
 function loadSubmissionModal() {
-  $('body > button').on('click', function(event){
+  $('body > div.ui.secondary.menu > div > button').on('click', function(event){
     event.preventDefault()
     $('.ui.modal.submission')
       .modal('show')
