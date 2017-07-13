@@ -47,6 +47,8 @@ class Submission {
                 <p>${this.body}</p>
               </div>
             </div>
+          <div class="description">
+            ${this.body.substring(0,150)} ...
           </div>
           <div class="actions">
             <div class="ui black right labeled icon button">

@@ -1,16 +1,41 @@
 class Collection {
   constructor(array) {
     this.submissions = []
-     array.map(object => {
-       this.submissions.push(new Submission(object))
-      })
+    array.map(object => {
+      this.submissions.push(new Submission(object))
+    })
   }
 
-  render() {
+  searchResults(searchTerm) {
+    this.submissions = this.submissions.filter(submission => {
+      return submission.title.toUpperCase().includes(searchTerm.toUpperCase()) ||
+        submission.description.toUpperCase().includes(searchTerm.toUpperCase()) ||
+        submission.category.toUpperCase().includes(searchTerm.toUpperCase())
+    })
+  }
 
-    this.submissions.map(submission => {
+  categoryResults(category) {
+    this.submissions = this.submissions.filter(submission => {
+      return submission.category.toUpperCase().includes(category.toUpperCase())
+    })
+  }
+
+  submissionsPage(page) {
+    return this.submissions.slice((page - 1) * 10, (page * 10))
+  }
+
+  render(array) {
+    if (array.length < 10) {
+      $('#loadMoreButton').hide()
+    }
+    array.forEach((submission) => {
       $('#results > div.ui.link.cards').append(submission.render())
     })
-
   }
 }
+
+
+
+// renderMore() {
+//   this.submissions
+// }

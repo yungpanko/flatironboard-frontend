@@ -10,8 +10,41 @@
 
   <body>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    
+    <!-- main header -->
+    <div class="ui secondary  menu">
+      <a class="item home-page">
+    Home
+  </a>
+      <a class="item blogs">
+    Blogs
+  </a>
+      <a class="item recipes">
+    Recipes
+  </a>
+      <a class="item news">
+    News
+  </a>
+      <div class="right menu">
+        <div class="item">
+          <!-- search header -->
+          <div class="ui search">
+            <div class="ui icon input">
+              <input id="search" class="prompt" type="search" placeholder="Seach submissions">
+              <i class="search icon"></i>
+            </div>
+            <div class="results"></div>
+          </div>
+          <!-- end search header -->
+          <a class="ui item">
+            Logout
+          </a>
+        </div>
+      </div>
+    </div>
 
-
+    <!-- end main header -->
+   
     <!-- CREATE SUBMISSION BUTTON -->
         <button class="circular ui icon button">
           <i class="plus icon"></i>
@@ -88,7 +121,7 @@
     </div>
 
     <!-- end collection display -->
-
+    <button class="fluid ui blue button" id="loadMoreButton">Load More Submissions</button>
 
   <script src="semantic/dist/semantic.min.js"></script>
   <script src="api-adapter.js"></script>
