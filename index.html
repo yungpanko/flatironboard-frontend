@@ -10,15 +10,7 @@
 
   <body>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="semantic/dist/semantic.min.js"></script>
-    <script src="api-adapter.js"></script>
-    <script src="submission.js"></script>
-    <script src="category.js"></script>
-    <script src="categorycollection.js"></script>
-    <script src="contentType.js"></script>
-    <script src="contentTypeCollection.js"></script>
-    <script src="collection.js"></script>
-    <script src="index.js"></script>
+    
     <!-- main header -->
     <div class="ui secondary  menu">
       <a class="item home-page">
@@ -52,58 +44,75 @@
     </div>
 
     <!-- end main header -->
+   
+    <!-- CREATE SUBMISSION BUTTON -->
+        <button class="circular ui icon button">
+          <i class="plus icon"></i>
+        </button>
+    <!-- END OF CREATE SUBMISSION BUTTON -->
+
     <!-- form -->
-    <h1 class="ui center aligned header">Welcome to FlatironBoard</h1>
-    <div class="ui horizontal divider">
-      CREATE A NEW SUBMISSION
+    <!-- Submission Form Modal -->
+    <div class="ui fullscreen modal submission">
+      <i class="close icon"></i>
+      <!-- ADDED TEXT CONTAINER FOR FORM -->
+      <div class="ui container">
+      <div class="ui horizontal divider">
+        CREATE A NEW SUBMISSION
+      </div>
+
+      <form id="form" class="ui small form">
+
+        <div class="six wide field">
+          <label>Title</label>
+          <input type="text" name="title">
+        </div>
+        <div class="ten wide field">
+          <label>Description</label>
+          <input type="text" name="description">
+        </div>
+        <div class="field">
+          <label>Body</label>
+          <textarea name="body" rows="3"></textarea>
+        </div>
+        <div class="field">
+          <label>Category</label>
+          <div class="ui selection dropdown categories">
+            <input type="hidden" name="category" id="category-selection">
+            <i class="dropdown icon"></i>
+            <div class="default text">Select Category</div>
+            <div class="menu" id="category-menu">
+              <!-- insert menu selections here <div class="item" data-value="0">Male</div> -->
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Content Type</label>
+          <div class="ui selection dropdown contentTypes">
+            <input type="hidden" name="content-type" id="content-type-selection">
+            <i class="dropdown icon"></i>
+            <div class="default text">Select Content Type</div>
+            <div class="menu" id="content-type-menu">
+              <!-- insert menu selections here <div class="item" data-value="0">Male</div> -->
+            </div>
+          </div>
+        </div>
+        <input class="ui button" type="submit" name="create submission" value="Create Submission!">
+      </form>
+      <br>
     </div>
+    </div>
+    <!-- end form -->
 
-    <form id="form" class="ui small form">
 
-      <div class="six wide field">
-        <label>Title</label>
-        <input type="text" name="title">
-      </div>
-      <div class="ten wide field">
-        <label>Description</label>
-        <input type="text" name="description">
-      </div>
-      <div class="field">
-        <label>Body</label>
-        <textarea name="body" rows="3"></textarea>
-      </div>
-      <div class="field">
-        <label>Category</label>
-        <div class="ui selection dropdown categories">
-          <input type="hidden" name="category" id="category-selection">
-          <i class="dropdown icon"></i>
-          <div class="default text">Select Category</div>
-          <div class="menu" id="category-menu">
-            <!-- insert menu selections here <div class="item" data-value="0">Male</div> -->
-          </div>
-        </div>
-      </div>
-      <div class="field">
-        <label>Content Type</label>
-        <div class="ui selection dropdown contentTypes">
-          <input type="hidden" name="content-type" id="content-type-selection">
-          <i class="dropdown icon"></i>
-          <div class="default text">Select Content Type</div>
-          <div class="menu" id="content-type-menu">
-            <!-- insert menu selections here <div class="item" data-value="0">Male</div> -->
-          </div>
-        </div>
-      </div>
-      <input class="ui button" type="submit" name="create submission" value="Create Submission!">
-      </div>
-    </form>
+    <h1 class="ui center aligned header">Welcome to FlatironBoard</h1>
+    <br>
 
     <div class="ui horizontal divider">
       FEED
     </div>
 
-    <!-- end form -->
-    <br>
+
     <!-- collection display -->
 
     <div class="ui three column padded centered grid" id="results">
@@ -114,6 +123,15 @@
     <!-- end collection display -->
     <button class="fluid ui blue button" id="loadMoreButton">Load More Submissions</button>
 
+  <script src="semantic/dist/semantic.min.js"></script>
+  <script src="api-adapter.js"></script>
+  <script src="submission.js"></script>
+  <script src="category.js"></script>
+  <script src="categorycollection.js"></script>
+  <script src="contentType.js"></script>
+  <script src="contentTypeCollection.js"></script>
+  <script src="collection.js"></script>
+  <script src="index.js"></script>
   </body>
 
 </html>

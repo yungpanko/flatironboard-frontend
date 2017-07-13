@@ -10,6 +10,8 @@ $(document)
     getAllCategories(renderCategoryDropDown) //move out of document ready when we move the form
     getAllContentTypes(renderContentTypeDropDown) //move out of document ready when we move the form
     submitForm()
+    loadCardModal()
+    loadSubmissionModal()
     loadMore()
     search()
     navBar()
@@ -136,4 +138,20 @@ function submitForm() {
       collection.render()
       event.preventDefault()
     })
+}
+
+function loadSubmissionModal() {
+  $('body > button').on('click', function(event){
+    event.preventDefault()
+    $('.ui.modal.submission')
+      .modal('show')
+  })
+}
+
+function loadCardModal(){
+  $('#results > div').on('click', '.card', function(event){
+    event.preventDefault()
+    let id = this.dataset.id
+    $(`.ui.modal.${id}`).modal('show')
+  })
 }
