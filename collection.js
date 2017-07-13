@@ -14,6 +14,12 @@ class Collection {
     })
   }
 
+  categoryResults(category) {
+    this.submissions = this.submissions.filter(submission => {
+      return submission.category.toUpperCase().includes(category.toUpperCase())
+    })
+  }
+
   submissionsPage(page) {
     return this.submissions.slice((page - 1) * 10, (page * 10))
   }
