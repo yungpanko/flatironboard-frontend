@@ -13,6 +13,7 @@ $(document)
     loadCardModal()
     loadSubmissionModal()
     loadMore()
+    heartListener()
     search()
     navBar()
     viewSource()
@@ -145,6 +146,19 @@ function submitForm() {
     })
 }
 
+
+function heartListener () {
+    $('#results').on('click', '#heart', function (event) {
+      event.preventDefault()
+      let data = {
+        "submission": {id: $(this).children()[0].value}
+      }
+      incrementLikes($(this).children()[0].value, data)
+      console.log("I was clicked")
+      page = 1
+      getAllSubmissions(displayContent)
+    })
+  
 function loadSubmissionModal() {
   $('body > div.ui.secondary.menu > div > button').on('click', function(event){
     event.preventDefault()

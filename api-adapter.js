@@ -68,3 +68,20 @@ function postNewSubmission(data) {
     .catch(error => console.log(error))
 
 }
+
+function incrementLikes(id, data) {
+
+  const url = 'http://localhost:3000/api/v1/submissions/' + id
+
+  fetch(url, {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(error => console.log(error))
+
+}

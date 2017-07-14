@@ -29,7 +29,7 @@ class Collection {
       $('#loadMoreButton').hide()
     }
     array.forEach((submission) => {
-      $('#results > div.ui.link.cards').append(submission.render())
+      $('#results').append(submission.render())
     })
   }
 }
