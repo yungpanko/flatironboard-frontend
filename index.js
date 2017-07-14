@@ -49,6 +49,27 @@ function navBar() {
         category = 'news'
         getAllSubmissions(categoryFilter)
         break;
+      case 'Music':
+        $('.item.active').removeClass('active')
+        $('.music').addClass('active')
+        $('#search').val("")
+        category = 'music'
+        getAllSubmissions(categoryFilter)
+        break;
+      case 'Health':
+        $('.item.active').removeClass('active')
+        $('.health').addClass('active')
+        $('#search').val("")
+        category = 'health'
+        getAllSubmissions(categoryFilter)
+        break;
+      case 'Decor':
+        $('.item.active').removeClass('active')
+        $('.decor').addClass('active')
+        $('#search').val("")
+        category = 'decor'
+        getAllSubmissions(categoryFilter)
+        break;
     }
   })
 }
@@ -68,7 +89,7 @@ function categoryFilter(data) {
   let collection = new Collection(data)
   collection.categoryResults(category)
   let array = collection.submissionsPage(page)
-  $('#results > div').html('')
+  $('#results').html('')
   collection.render(array)
   page += 1
 }
@@ -78,7 +99,7 @@ function searchFilter(data) {
   let collection = new Collection(data)
   collection.searchResults(term)
   let array = collection.submissionsPage(page)
-  $('#results > div').html('')
+  $('#results').html('')
   collection.render(array)
   page += 1
 }
@@ -111,7 +132,7 @@ function renderContentTypeDropDown(data) {
 }
 
 function displayContent(data) {
-  $('#results > div').html('')
+  $('#results').html('')
   let collection = new Collection(data)
   let array = collection.submissionsPage(page)
   collection.render(array)
@@ -146,29 +167,42 @@ function submitForm() {
     })
 }
 
-function likedCard(item){
+function likedCard(item) {
   let data = {
-    "submission": {id: item.dataset.id}
+    "submission": {
+      id: item.dataset.id
+    }
   }
-  incrementLikes(item.dataset.id, data)
+  incrementLikes(item.dataset.id, data, updateLikesOnSubmission)
   console.log("I was clicked")
-  page = 1
-  getAllSubmissions(displayContent)
+  // page = 1
+  // getSingleSubmission(item.dataset.id, updateLikesOnSubmission)
 }
 
-  function loadCardModal(){
-    $('#results').on('click', '.card', function(event){
-      event.preventDefault()
-      if (event.target.id === "heart") {
-        likedCard(this)
-      } else {
+function updateLikesOnSubmission(data) {
+  let submission = new Submission(data)
+  let cards = $('.ui.fluid.card')
+  cards = Array.from(cards)
+  let submssionToBeUpdated = cards.filter(card => {
+    return card.dataset.id === submission.id.toString()
+  })
+  $(submssionToBeUpdated).find('.ui.basic.red.left.pointing.label')[0].innerText = submission.likes
+}
+
+function loadCardModal() {
+  $('#results').on('click', '.card', function (event) {
+    event.preventDefault()
+    if (event.target.id === "heart") {
+      likedCard(this)
+    } else {
       let id = this.dataset.id
       $(`.ui.modal.${id}`).modal('show')
-    }})
-  }
+    }
+  })
+}
 
 function loadSubmissionModal() {
-  $('body > div.ui.secondary.menu > div > button').on('click', function(event){
+  $('body > div.ui.secondary.menu > div > button').on('click', function (event) {
     event.preventDefault()
     $('.ui.modal.submission')
       .modal('show')
@@ -177,18 +211,18 @@ function loadSubmissionModal() {
 
 
 
-function viewSource(){
-  $(document).on('click', 'div.ui.right.labeled.icon.button',function(event){
+function viewSource() {
+  $(document).on('click', 'div.ui.right.labeled.icon.button', function (event) {
     event.preventDefault()
     switch ($(this).data("value")) {
-    case 'source':
+      case 'source':
         window.open(this.dataset.url, '_blank')
         $(".ui.modal").modal("hide")
         break
-    // case 'delete':
-    //     $("#result").html("normal")
-    //     $(".ui.modal").modal("hide")
-    //     break
+        // case 'delete':
+        //     $("#result").html("normal")
+        //     $(".ui.modal").modal("hide")
+        //     break
     }
   })
 }
