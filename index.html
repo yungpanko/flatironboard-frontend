@@ -66,6 +66,7 @@
       </div>
 
       <form id="form" class="ui small form">
+        <div class="scrolling content">
 
         <div class="six wide field">
           <label>Title</label>
@@ -78,6 +79,14 @@
         <div class="field">
           <label>Body</label>
           <textarea name="body" rows="3"></textarea>
+        </div>
+        <div class="ten wide field">
+          <label>Link URL</label>
+          <input type="text" name="link_url">
+        </div>
+        <div class="ten wide field">
+          <label>Source URL (specific to picture/video, not the article)</label>
+          <input type="text" name="src_url">
         </div>
         <div class="field">
           <label>Category</label>
@@ -104,6 +113,8 @@
         <input class="ui button" type="submit" name="create submission" value="Create Submission!">
       </form>
       <br>
+      <br>
+    </div>
     </div>
     </div>
     <!-- end form -->
@@ -126,15 +137,15 @@
     <!-- end collection display -->
     <button class="fluid ui blue button" id="loadMoreButton">Load More Submissions</button>
 
-  <script src="semantic/dist/semantic.min.js"></script>
-  <script src="api-adapter.js"></script>
-  <script src="submission.js"></script>
-  <script src="category.js"></script>
-  <script src="categorycollection.js"></script>
-  <script src="contentType.js"></script>
-  <script src="contentTypeCollection.js"></script>
-  <script src="collection.js"></script>
-  <script src="index.js"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <script src="api-adapter.js"></script>
+    <script src="submission.js"></script>
+    <script src="category.js"></script>
+    <script src="categorycollection.js"></script>
+    <script src="contentType.js"></script>
+    <script src="contentTypeCollection.js"></script>
+    <script src="collection.js"></script>
+    <script src="index.js"></script>
   </body>
 
 </html>
