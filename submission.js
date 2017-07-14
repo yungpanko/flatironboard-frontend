@@ -1,6 +1,7 @@
 class Submission {
   constructor(object) {
     this.id = object.id
+    this.user = object.user
     this.title = object.title
     this.description = object.description
     this.body = object.body
@@ -22,44 +23,39 @@ class Submission {
               <a>${this.description}</a>
             </div>
             <div class="description">
-              ${this.body}
+              ${this.body.substring(0,150)} ...
             </div>
-            <a href="${this.link_url}" target="_blank" >
             <div class="ui bottom attached button">
-              <p>View Source</p>
+              <p>View More</p>
             </div>
-            </a>
           </div>
         </div>
 
-        <div class="ui modal ${this.id}">
+        <div class="ui fullscreen modal ${this.id}">
           <i class="close icon"></i>
           <div class="header">
             Photo
           </div>
           <div class="image content">
-            <div class="ui medium image">
+            <div class="ui image">
               <img src=${this.src_url}>
             </div>
             <div class="description">
               <div class="ui header">${this.description}</div>
-              <div class="scrolling content">
-                <p>${this.body}</p>
-              </div>
+                <div><p>${this.body}</p></div>
             </div>
-          <div class="description">
-            ${this.body.substring(0,150)} ...
           </div>
           <div class="actions">
-            <div class="ui black right labeled icon button">
-              Edit
-              <i class="edit icon"></i>
+            <div class="ui black right labeled icon button" data-value="source" data-url="${this.link_url}">
+              View Source
+              <i class="external icon"></i>
             </div>
-            <div class="ui red right labeled icon button">
+            <div class="ui red right labeled icon button" data-value="delete">
               Delete
               <i class="remove icon"></i>
             </div>
           </div>
+        </div>
         </div>
     `
   }

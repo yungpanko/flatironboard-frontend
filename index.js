@@ -15,6 +15,7 @@ $(document)
     loadMore()
     search()
     navBar()
+    viewSource()
   })
 
 function navBar() {
@@ -123,6 +124,8 @@ function submitForm() {
       let title = $('#form > > input[name="title"]').val()
       let description = $('#form > > input[name="description"]').val()
       let body = $('#form > > textarea[name="body"]').val()
+      let src_url = $('#form > > input[name="src_url"]').val()
+      let link_url = $('#form > > input[name="link_url"]').val()
       let category_id = $('#category-selection').val()
       let content_type_id = $('#content-type-selection').val()
       let data = {
@@ -130,6 +133,8 @@ function submitForm() {
           "title": title,
           "description": description,
           "body": body,
+          "src_url": src_url,
+          "link_url": link_url,
           "category_id": category_id,
           "content_type_id": content_type_id
         }
@@ -153,5 +158,22 @@ function loadCardModal(){
     event.preventDefault()
     let id = this.dataset.id
     $(`.ui.modal.${id}`).modal('show')
+  })
+}
+
+function viewSource(){
+  $(document).on('click', 'div.ui.right.labeled.icon.button',function(event){
+    event.preventDefault()
+    debugger
+    switch ($(this).data("value")) {
+    case 'source':
+        window.open(this.dataset.url, '_blank')
+        $(".ui.modal").modal("hide")
+        break
+    // case 'delete':
+    //     $("#result").html("normal")
+    //     $(".ui.modal").modal("hide")
+    //     break
+    }
   })
 }
