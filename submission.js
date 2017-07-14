@@ -30,21 +30,16 @@ class Submission {
             </div>
             <div class="ui bottom attached button">
               <p>View More</p>
-          <a href="${this.link_url}" target="_blank" >
-            <div class="ui bottom attached button">
-              <p>View Source</p>
             </div>
-          </a>
-        </div>
-        <div class="center aligned extra content">
-          <div class="ui labeled button" tabindex="0">
-            <div class="ui red button" id="heart">
-              <input type="hidden" value="${this.id}">
-              <i class="heart icon"></i> Like
-            </div>
-            <a class="ui basic red left pointing label">
-              ${this.likes}
-            </a>
+            <div class="center aligned extra content">
+            <div class="ui labeled button" tabindex="0">
+              <div class="ui red button" id="heart">
+                <input type="hidden" value="${this.id}">
+                <i class="heart icon"></i> Like
+              </div>
+              <a class="ui basic red left pointing label">
+                ${this.likes}
+              </a>
             </div>
           </div>
         </div>
@@ -60,12 +55,9 @@ class Submission {
             </div>
             <div class="description">
               <div class="ui header">${this.description}</div>
-                <div><p>${this.body}</p></div>
+              <div><p>${this.body}</p></div>
             </div>
           </div>
-
-          
-
           <div class="actions">
             <div class="ui black right labeled icon button" data-value="source" data-url="${this.link_url}">
               View Source
@@ -77,11 +69,7 @@ class Submission {
             </div>
           </div>
         </div>
-        </div>
-</div>
-        </div>
       </div>
-    </div>
 
     `
   }

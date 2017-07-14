@@ -158,7 +158,8 @@ function heartListener () {
       page = 1
       getAllSubmissions(displayContent)
     })
-  
+  }
+
 function loadSubmissionModal() {
   $('body > div.ui.secondary.menu > div > button').on('click', function(event){
     event.preventDefault()
