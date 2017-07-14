@@ -26,6 +26,15 @@
       <a class="item news">
     News
   </a>
+      <a class="item music">
+    Music
+  </a>
+      <a class="item health">
+    Health
+  </a>
+      <a class="item decor">
+    Decor
+  </a>
 
       <div class="right menu">
 
@@ -62,61 +71,61 @@
       <i class="close icon"></i>
       <!-- ADDED TEXT CONTAINER FOR FORM -->
       <div class="ui container">
-      <div class="ui horizontal divider">
-        CREATE A NEW SUBMISSION
+        <div class="ui horizontal divider">
+          CREATE A NEW SUBMISSION
+        </div>
+
+        <form id="form" class="ui small form">
+          <div class="scrolling content">
+
+            <div class="six wide field">
+              <label>Title</label>
+              <input type="text" name="title">
+            </div>
+            <div class="ten wide field">
+              <label>Description</label>
+              <input type="text" name="description">
+            </div>
+            <div class="field">
+              <label>Body</label>
+              <textarea name="body" rows="3"></textarea>
+            </div>
+            <div class="ten wide field">
+              <label>Link URL</label>
+              <input type="text" name="link_url">
+            </div>
+            <div class="ten wide field">
+              <label>Source URL (specific to picture/video, not the article)</label>
+              <input type="text" name="src_url">
+            </div>
+            <div class="field">
+              <label>Category</label>
+              <div class="ui selection dropdown categories">
+                <input type="hidden" name="category" id="category-selection">
+                <i class="dropdown icon"></i>
+                <div class="default text">Select Category</div>
+                <div class="menu" id="category-menu">
+                  <!-- insert menu selections here <div class="item" data-value="0">Male</div> -->
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>Content Type</label>
+              <div class="ui selection dropdown contentTypes">
+                <input type="hidden" name="content-type" id="content-type-selection">
+                <i class="dropdown icon"></i>
+                <div class="default text">Select Content Type</div>
+                <div class="menu" id="content-type-menu">
+                  <!-- insert menu selections here <div class="item" data-value="0">Male</div> -->
+                </div>
+              </div>
+            </div>
+            <input class="ui button" type="submit" name="create submission" value="Create Submission!">
+        </form>
+        <br>
+        <br>
+        </div>
       </div>
-
-      <form id="form" class="ui small form">
-        <div class="scrolling content">
-
-        <div class="six wide field">
-          <label>Title</label>
-          <input type="text" name="title">
-        </div>
-        <div class="ten wide field">
-          <label>Description</label>
-          <input type="text" name="description">
-        </div>
-        <div class="field">
-          <label>Body</label>
-          <textarea name="body" rows="3"></textarea>
-        </div>
-        <div class="ten wide field">
-          <label>Link URL</label>
-          <input type="text" name="link_url">
-        </div>
-        <div class="ten wide field">
-          <label>Source URL (specific to picture/video, not the article)</label>
-          <input type="text" name="src_url">
-        </div>
-        <div class="field">
-          <label>Category</label>
-          <div class="ui selection dropdown categories">
-            <input type="hidden" name="category" id="category-selection">
-            <i class="dropdown icon"></i>
-            <div class="default text">Select Category</div>
-            <div class="menu" id="category-menu">
-              <!-- insert menu selections here <div class="item" data-value="0">Male</div> -->
-            </div>
-          </div>
-        </div>
-        <div class="field">
-          <label>Content Type</label>
-          <div class="ui selection dropdown contentTypes">
-            <input type="hidden" name="content-type" id="content-type-selection">
-            <i class="dropdown icon"></i>
-            <div class="default text">Select Content Type</div>
-            <div class="menu" id="content-type-menu">
-              <!-- insert menu selections here <div class="item" data-value="0">Male</div> -->
-            </div>
-          </div>
-        </div>
-        <input class="ui button" type="submit" name="create submission" value="Create Submission!">
-      </form>
-      <br>
-      <br>
-    </div>
-    </div>
     </div>
     <!-- end form -->
 
@@ -131,10 +140,10 @@
     <!-- collection display -->
 
 
-      <div class="ui container">
-        <div class="ui three column doubling stackable masonry grid" id="results">
-        </div>
+    <div class="ui container">
+      <div class="ui three column doubling stackable masonry grid" id="results">
       </div>
+    </div>
 
     <!-- end collection display -->
     <button class="fluid ui blue button" id="loadMoreButton">Load More Submissions</button>

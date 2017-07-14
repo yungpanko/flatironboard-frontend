@@ -27,7 +27,10 @@ class Collection {
   render(array) {
     if (array.length < 10) {
       $('#loadMoreButton').hide()
+    } else {
+      $('#loadMoreButton').show()
     }
+
     array.forEach((submission) => {
       $('#results').append(submission.render())
     })

@@ -47,7 +47,7 @@ class Submission {
         <div class="ui fullscreen modal ${this.id}">
           <i class="close icon"></i>
           <div class="header">
-            Photo
+            ${this.title}
           </div>
           <div class="image content">
             <div class="ui image">

@@ -69,7 +69,7 @@ function postNewSubmission(data) {
 
 }
 
-function incrementLikes(id, data) {
+function incrementLikes(id, data, callback) {
 
   const url = 'http://localhost:3000/api/v1/submissions/' + id
 
@@ -81,7 +81,7 @@ function incrementLikes(id, data) {
       body: JSON.stringify(data)
     })
     .then(response => response.json())
-    .then(response => console.log(response))
+    .then(response => getSingleSubmission(id, updateLikesOnSubmission))
     .catch(error => console.log(error))
 
 }
