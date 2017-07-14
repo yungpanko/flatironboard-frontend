@@ -13,7 +13,6 @@ $(document)
     loadCardModal()
     loadSubmissionModal()
     loadMore()
-    heartListener()
     search()
     navBar()
     viewSource()
@@ -122,11 +121,11 @@ function displayContent(data) {
 function submitForm() {
   $('#form')
     .on('submit', function (event) {
-      let title = $('#form > > input[name="title"]').val()
-      let description = $('#form > > input[name="description"]').val()
-      let body = $('#form > > textarea[name="body"]').val()
-      let src_url = $('#form > > input[name="src_url"]').val()
-      let link_url = $('#form > > input[name="link_url"]').val()
+      let title = $('#form > > > input[name="title"]').val()
+      let description = $('#form > > > input[name="description"]').val()
+      let body = $('#form > > > textarea[name="body"]').val()
+      let src_url = $('#form > > > input[name="src_url"]').val()
+      let link_url = $('#form > > > input[name="link_url"]').val()
       let category_id = $('#category-selection').val()
       let content_type_id = $('#content-type-selection').val()
       let data = {
@@ -140,24 +139,32 @@ function submitForm() {
           "content_type_id": content_type_id
         }
       }
+      debugger
       postNewSubmission(data)
       collection.render()
       event.preventDefault()
     })
 }
 
+function likedCard(item){
+  let data = {
+    "submission": {id: item.dataset.id}
+  }
+  incrementLikes(item.dataset.id, data)
+  console.log("I was clicked")
+  page = 1
+  getAllSubmissions(displayContent)
+}
 
-function heartListener () {
-    $('#results').on('click', '#heart', function (event) {
+  function loadCardModal(){
+    $('#results').on('click', '.card', function(event){
       event.preventDefault()
-      let data = {
-        "submission": {id: $(this).children()[0].value}
-      }
-      incrementLikes($(this).children()[0].value, data)
-      console.log("I was clicked")
-      page = 1
-      getAllSubmissions(displayContent)
-    })
+      if (event.target.id === "heart") {
+        likedCard(this)
+      } else {
+      let id = this.dataset.id
+      $(`.ui.modal.${id}`).modal('show')
+    }})
   }
 
 function loadSubmissionModal() {
@@ -168,18 +175,11 @@ function loadSubmissionModal() {
   })
 }
 
-function loadCardModal(){
-  $('#results > div').on('click', '.card', function(event){
-    event.preventDefault()
-    let id = this.dataset.id
-    $(`.ui.modal.${id}`).modal('show')
-  })
-}
+
 
 function viewSource(){
   $(document).on('click', 'div.ui.right.labeled.icon.button',function(event){
     event.preventDefault()
-    debugger
     switch ($(this).data("value")) {
     case 'source':
         window.open(this.dataset.url, '_blank')
